@@ -74,58 +74,51 @@ kkk2=[]
 kkk3=[]
 
 print('den=',den)
-for (n) in cur:
-    
+def vibor():
+ global kkk1
+ global kkk2
+ global kkk3
+ global ld
   
+ for (n) in cur:
       kkk2.append(n[2])
       kkk1.append(n[1])
       kkk3.append(n[3])
-    
-    
-        
-print(kkk1)
-print(kkk2)
-print(kkk3)
-le=len(kkk2)
-if int(kkk2[le-1])==chasi:
-  if abs(int(kkk3[le-1])- mi)>=2: ld.append('Go home')
+          
+ print(kkk1)
+ print(kkk2)
+ print(kkk3)
+ le=len(kkk2)
+ if int(kkk2[le-1])==chasi:
+   if abs(int(kkk3[le-1])- mi)>=2: ld.append('Go home')
   
-#if abs(int(kkk2[le-1])-chasi)>4:#den=kalen.get(nomden+1) следующий день
-#pdb.set_trace() 
-i=0
-zz=0
-lld=0
+ if abs(int(kkk2[le-1])-chasi)>4:
+   den=kalen.get(nomden+1)# следующий день
+   vibor
+
+ i=0
+ zz=0
+ lld=0
 #pdb.set_trace()
-print(type(mi))
-if  int(kkk2[i])>=chasi:
+ print(type(mi))
+ if  int(kkk2[i])>=chasi:
           ld=kkk1
 
-else:
+ else:  
+  lld=kkk2.index(str(chasi))
+  i=lld
  
- lld=kkk2.index(str(chasi))
- 
- i=lld
- 
- if abs(int(kkk3[i])-mi)>2 and int(kkk3[i])<mi:  i=lld+1
+  if abs(int(kkk3[i])-mi)>2 and int(kkk3[i])<mi:  i=lld+1
      
- elif  abs(int(kkk3[i])-mi)<=2 and int(kkk3[i])>mi: i=lld 
- while i!=le:
+  elif  abs(int(kkk3[i])-mi)<=2 and int(kkk3[i])                                                                                                                                                                                                                                                                                                                                                                                         >mi: i=lld 
+  while i!=le:
     ld.append(kkk1[i])
     i=i+1
-
-   # else:     
-   
-
-          
-    # elif abs(int(kkk3[i])-mi)>2:
-        
-     #else: i=i+1        
+vibor()
+     
 
 print(ld)
 
-#def shet():
-  #ld.append(kkk1[i])
-#  i=i+1   
 
 
 
