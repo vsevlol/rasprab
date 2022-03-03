@@ -49,7 +49,7 @@ except Error as e:
 
 
 n=0
-cur = conn.cursor()
+#cur = conn.cursor()
 
 #chasi=chas
 chasi=19
@@ -59,8 +59,8 @@ ur={}
 
 
 ld=[]
-query = ("SELECT * FROM %s" % den) #работает
-cur.execute(query)
+#query = ("SELECT * FROM %s" % den) #работает
+#cur.execute(query)
 
 
 
@@ -79,12 +79,19 @@ def vibor():
  global den
  global she
  global dd
+ global query
+ global den 
+ 
  she=she+1
- pdb.set_trace()
+# pdb.set_trace()
  kkk1=[]
  kkk2=[]
  kkk3=[]
+ 
 
+ cur = conn.cursor()
+ query = ("SELECT * FROM %s" % den) #работает
+ cur.execute(query)
 
 
  for (n) in cur:  

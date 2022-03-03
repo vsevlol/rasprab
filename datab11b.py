@@ -53,7 +53,7 @@ except Error as e:
 
 
 n=0
-cur = conn.cursor()
+#cur = conn.cursor()
 #pdb.set_trace() 
 
 #chasi=chas
@@ -64,8 +64,8 @@ ur={}
 
 
 ld=[]
-query = ("SELECT * FROM %s" % den) #работает
-cur.execute(query)
+#query = ("SELECT * FROM %s" % den) #работает
+#cur.execute(query)
 
 
 
@@ -74,11 +74,22 @@ kkk2=[]
 kkk3=[]
 
 print('den=',den)
+
 def vibor():
  global kkk1
  global kkk2
  global kkk3
  global ld
+ global query
+ global den
+
+
+ 
+ cur = conn.cursor()
+ query = ("SELECT * FROM %s" % den) #работает
+ cur.execute(query)
+
+ 
   
  for (n) in cur:
       kkk2.append(n[2])
@@ -94,12 +105,15 @@ def vibor():
   
  if abs(int(kkk2[le-1])-chasi)>4:
    den=kalen.get(nomden+1)# следующий день
+   dd=1
+   
+   chasi=8
    vibor
 
  i=0
  zz=0
  lld=0
-#pdb.set_trace()
+ #pdb.set_trace()
  print(type(mi))
  if  int(kkk2[i])>=chasi:
           ld=kkk1
