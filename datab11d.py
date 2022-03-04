@@ -25,16 +25,21 @@ chis=int(now.day)
 
 post=0
 nomden=calendar.weekday(ye,mes,chis)
-#print('nomden=',nomden)
+
+print('nomden=',nomden)
 kalen={}
 kalen={0:"mondey",
          1:"tuesday",
          2:"wednesday",
          3:"thursday",
-         4:"friday"}
+         4:"friday",
+         5:"saturday",
+         6:"sunday"}
 #den=kalen.get(nomden)
 den="wednesday"
-
+if den=="saturday" or den=="sunday":
+    den="mondey"
+    
 try:
     conn = mysql.connector.connect(
          user='root',
@@ -54,6 +59,7 @@ n=0
 #chasi=chas
 chasi=19
 mi=45
+
 nasden1=nomden+1
 ur={}
 
@@ -82,7 +88,15 @@ def vibor():
  global query
  global den
  global cur
- 
+ global nomden
+ global kalen
+ print(kalen)
+ print('den2=',den)
+ print('nomden1 =',nomden)
+ if den=="saturday" or den=="sunday":
+    den="mondey"
+    chasi=8
+    
  she=she+1
 # pdb.set_trace()
  kkk1=[]
@@ -111,10 +125,15 @@ def vibor():
    if abs(int(kkk3[le-1])- mi)>=2: ld.append('Go home')
  
  if abs(int(kkk2[le-1])-chasi)>4 and dd==0:
+   print(kkk2[le-1])
+   print(chasi)
+   
+   print('dd1=',dd)
    den=kalen.get(nomden+1)# следующий день
+   print('den2=',den)
    print('newden=',den)
    dd=1
-   print('dd1=',dd)
+  
    chasi=8
    vibor()
 
